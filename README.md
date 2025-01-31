@@ -1,12 +1,14 @@
 ## get_trade.py
 
+This script uses the UN Comtrade Database API to download trade data in CSV format for the CN Economic Coercion dashboard.
+
 1. Open Windows Powershell by opening an Explorer window in this directory
    and clicking File > Open Windows Powershell.
 2. Type	`python get_trade.py <year>` Example: `python get_trade.py 2023`
 3. Wait for the script to finish running. It can take a while.
 4. That's it!
 
-Important note: This script does the following automatically:
+This script does the following automatically:
   - Remove products where the sum of import values from the selected countries is less than 70% of the total World import value.
   - Add rows for products that China imported but did not export with value = 0.
 
@@ -28,7 +30,9 @@ Include the -c flag if you want to test how many entries you would get for that	
 
 ## convert_to_h0.py
 
-Input: trade data from get_trade.py or calc_pct.py
+Converts non-H0 product codes to H0 product codes. This is becaues it's not currently possible to convert older nomenclatures to newer nomenclatures.
+
+Input: trade data from `get_trade.py` or `calc_pct.py`
 
 Output: same data but with the cmdCodes updated to H0
 
